@@ -2,7 +2,7 @@
 
 Get to know RESTful API development.
 
-**Learning Objectives:**
+## Learning Objectives
 
 - Give an overview of HTP and HTTPS requests and responses and describe HTTP methods and status codes.
 - Identify the key characteristics, benefits and uses of REST API.
