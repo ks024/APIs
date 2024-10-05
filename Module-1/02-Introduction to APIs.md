@@ -13,13 +13,15 @@
    - Client encrypts data before sending it.
    - Server decrypts, processes the request, encrypts the response, and sends it back to the client, which decrypts it.
 
-### Common HTTP Methods (Verbs)
+## Common HTTP Methods (Verbs)
 
-- **GET**: Retrieves a resource.
-- **POST**: Sends data to create a record.
-- **PUT**: Updates the entire resource.
-- **PATCH**: Partially updates a resource.
-- **DELETE**: Deletes a resource.
+| Method | Description                                  |
+|--------|----------------------------------------------|
+| GET    | Retrieves a resource                         |
+| POST   | Sends data to create a record               |
+| PUT    | Updates the entire resource                  |
+| PATCH  | Partially updates a resource                 |
+| DELETE | Deletes a resource                           |
 
 ### HTTP Requests
 
@@ -38,12 +40,14 @@
   - Response headers (e.g., cookies, ETags)
   - **HTTP Status Codes**: Indicate the result of the request.
 
-### Status Codes
+### HTTP Status Codes
 
-- **200-299**: Successful responses (e.g., 200 OK, 201 Created).
-- **300-399**: Redirection information.
-- **400-499**: Client errors (e.g., 404 Not Found).
-- **500-599**: Server errors (e.g., 500 Internal Server Error).
+| Code Range | Meaning                        | Example                 |
+|------------|--------------------------------|-------------------------|
+| 200-299    | Successful responses           | 200 OK, 201 Created     |
+| 300-399    | Redirection information        | 301 Moved Permanently   |
+| 400-499    | Client errors                  | 404 Not Found           |
+| 500-599    | Server errors                  | 500 Internal Server Error|
 
 ### Key Points
 
@@ -57,13 +61,15 @@
 
 - Adhering to HTTP conventions is crucial for reducing bugs and facilitating easier API use by other developers.
 
-#### HTTP Methods
+## HTTP Methods
 
-- **GET**: Retrieves a resource. Returns 404 if not found.
-- **POST**: Creates a record. Requires a payload (JSON or URL encoded data).
-- **PUT**: Replaces a resource entirely with the provided data.
-- **PATCH**: Partially updates a resource, changing only specified fields.
-- **DELETE**: Removes a resource or an entire collection.
+| Method | Description                                  | Example Endpoint                |
+|--------|----------------------------------------------|----------------------------------|
+| GET    | Retrieves a resource                         | `/api/menu-items`               |
+| POST   | Sends data to create a record               | `/api/menu-items`               |
+| PUT    | Replaces a resource entirely with the provided data | `/api/menu-items/1`          |
+| PATCH  | Partially updates a resource                 | `/api/menu-items/1`             |
+| DELETE | Removes a resource                           | `/api/menu-items/1`             |
 
 ### Example Endpoints for HTTP Methods
 
@@ -128,27 +134,16 @@
 - **Endpoint**: `/api/menu-items`
   - **Description**: Deletes all menu items in the collection. This action should be used with caution.
 
-### Status Code
+## Response Types
 
-- **100-199**: Informational (e.g., 102 – Processing).
-- **200-299**: Success codes (e.g., 200 – OK, 201 – Created).
-- **300-399**: Redirection codes (e.g., 301 – Permanently moved).
-- **400-499**: Client errors (e.g., 404 – Not Found, 400 – Bad Request, 401 – Unauthorized, 403 – Forbidden).
-- **500-599**: Server errors (e.g., 500 – Internal Server Error). Aim to avoid these.
+Common response formats include JSON, XML, plain text, and YAML.
 
-#### Response Types
-
-- Common response formats include JSON, XML, plain text, and YAML.
-- Clients can specify desired formats using the `Accept` HTTP header.
-  
-**Example Headers**:
-
-- **HTML**: `Accept: text/html`
-- **JSON**: `Accept: application/json`
-- **XML**: `Accept: application/xml`
-- **YAML**: `Accept: application/yaml`
-
-Understanding these methods, status codes, and response types is essential for developing effective and user-friendly APIs.
+| Format        | Example Header                    |
+|---------------|-----------------------------------|
+| JSON          | `Accept: application/json`        |
+| XML           | `Accept: application/xml`         |
+| HTML          | `Accept: text/html`               |
+| YAML          | `Accept: application/yaml`        |
 
 ### Overview of REST APIs
 
@@ -170,21 +165,23 @@ Understanding these methods, status codes, and response types is essential for d
 
 6. **Code on Demand (Optional)**: The API can deliver executable code (e.g., JavaScript) that clients can run to enhance functionality.
 
-#### Resources in REST APIs
+## Resources in REST APIs
 
 - Resources are fundamental to REST APIs. They represent data that can be manipulated via the API.
-- **Examples**:
-  - **Manager Use Cases**:
-    - View all orders: `/api/orders`
-    - View a specific order: `/api/orders/16`
-    - View customer details for an order: `/api/orders/16/customer`
-    - View menu items for an order: `/api/orders/16/menu-items`
-  
-  - **Customer Use Cases**:
-    - Browse all menu items: `/api/menu-items`
-    - Filter by category (e.g., appetizers): `/api/menu-items?category=appetizers`
 
-#### Statelessness Revisited
+| Manager Use Cases         | Endpoint                      |
+|---------------------------|-------------------------------|
+| View all orders           | `/api/orders`                |
+| View a specific order     | `/api/orders/16`             |
+| View customer details for an order | `/api/orders/16/customer` |
+| View menu items for an order | `/api/orders/16/menu-items` |
+
+| Customer Use Cases        | Endpoint                      |
+|---------------------------|-------------------------------|
+| Browse all menu items     | `/api/menu-items`            |
+| Filter by category        | `/api/menu-items?category=appetizers` |
+
+### Statelessness Revisited
 
 - The server does not remember previous requests. Each call must include necessary parameters. For example, to get menu items for a specific order, the request must specify the order ID explicitly: `/api/orders/16/menu-items`.
 
@@ -195,36 +192,21 @@ Understanding these methods, status codes, and response types is essential for d
 - **First Impressions Matter**: Well-designed endpoints enhance clarity and usability for developers.
 - **Consistency**: Following naming conventions aids in maintainability and collaboration.
 
-#### Key Naming Conventions
+## Key Naming Conventions
 
-1. **Lowercase Letters**:
-   - Use only lowercase letters for API endpoints (e.g., `/orders`, not `/Orders`).
+| Practice                           | Description                                       | Example                           |
+|------------------------------------|---------------------------------------------------|-----------------------------------|
+| Lowercase Letters                  | Use only lowercase letters for API endpoints      | `/api/menu-items`                |
+| Hyphen Usage                       | Separate words with hyphens for readability      | `/api/order-items`               |
+| Curly Braces for Variables         | Use camel case for variables in curly braces      | `/api/menu-items/{itemId}`       |
+| Hierarchical Relationships          | Use forward slashes to represent resource relationships | `/api/orders/16/menu-items`  |
+| Use Nouns for Resources            | Name endpoints with nouns representing the resources | `/api/customers`                |
+| Avoid Verbs                        | Use HTTP methods to indicate actions              | `GET /api/orders`                |
+| No File Extensions                 | Avoid using file extensions in endpoints          | `/api/users`                     |
+| Query String Parameters for Filtering | Use query strings to filter results              | `/api/menu-items?category=appetizers` |
+| No Trailing Slashes                | Avoid ending endpoints with a trailing slash      | `/api/orders` (not `/api/orders/`) |
 
-2. **Hyphen Usage**:
-   - Separate words with hyphens for readability (e.g., `/menu-items`).
-
-3. **Curly Braces for Variables**:
-   - Use camel case for variables wrapped in curly braces (e.g., `/orders/{orderId}`).
-
-4. **Hierarchical Relationships**:
-   - Use forward slashes to represent relationships between resources (e.g., `/customers/{customerId}/orders`).
-
-5. **Use Nouns for Resources**:
-   - Endpoints should be named with nouns representing the resources (e.g., `/books`, not `/getAllBooks`).
-
-6. **Avoid Verbs**:
-   - Do not use verbs in endpoint names; actions should be indicated by HTTP methods (e.g., `DELETE /users/{userId}`).
-
-7. **No File Extensions**:
-   - Avoid using file extensions in endpoints (e.g., do not use `/orders/{orderId}.json`). Instead, use query parameters for format (e.g., `/orders/{orderId}?format=json`).
-
-8. **Query String Parameters for Filtering**:
-   - Use query strings to filter results (e.g., `/menu-items?category=appetizers`).
-
-9. **No Trailing Slashes**:
-   - Avoid ending endpoints with a trailing slash (e.g., use `/orders` instead of `/orders/`).
-
-#### Recap of Best Practices
+### Recap of Best Practices
 
 - **Use lowercase URI formatting**: Ensures consistency and readability.
 - **Indicate hierarchical relationships with a forward slash**: Clearly shows the relationship between resources.
