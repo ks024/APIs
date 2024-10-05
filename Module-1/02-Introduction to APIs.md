@@ -336,3 +336,16 @@ This format organizes each rule with corresponding good and bad URI examples for
   
 This setup ensures efficient management of your Python projects and their dependencies.
 
+## Creating Django project
+
+**Step 1** : Create a directory for the Django project by running the following command `mkdir LittleLemon`
+
+**Step 2** : Step inside the LittleLemon directory with the command: `cd LittleLemon`
+
+**Step 3** : Run the following command to create a project in this directory: `django-admin startproject BookList .`
+
+**Step 4** : Run a command to activate **pipenv**: `pipenv shell`
+
+**Note** : It is expected that pipenv is installed using pip in your local machine.
+
+**Step 5** : Now run this command to create a Django app: `python manage.py startapp LittleLemonDRF`
