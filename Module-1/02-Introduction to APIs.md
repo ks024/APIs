@@ -288,7 +288,7 @@ Common response formats include JSON, XML, plain text, and YAML.
 
 This format organizes each rule with corresponding good and bad URI examples for clarity.
 
-### Summary of Tools for API Development and Testing
+### Tools for API Development and Testing
 
 #### Tools Overview
 
@@ -324,7 +324,7 @@ This format organizes each rule with corresponding good and bad URI examples for
 
 - Familiarity with tools like Curl, Postman, and Insomnia will significantly aid in the development and testing of APIs throughout the course.
 
-### Summary of Steps for Python Development Setup
+### Steps for Python Development Setup
 
 #### Step 4: Install Additional VS Code Extensions (Optional)
 
