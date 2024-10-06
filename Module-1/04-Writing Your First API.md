@@ -223,3 +223,221 @@ In this course, you'll build APIs using **Django REST Framework (DRF)**, which c
 - **XML** is more powerful and flexible, supporting attributes and complex hierarchical data, but it is generally more verbose and computationally intensive.
 
 Throughout this course, you'll primarily use **JSON** for API responses due to its simplicity and efficiency, but you'll also be able to handle **XML** when needed.
+
+## Debugging in Visual Studio Code: A Quick Guide
+
+Debugging is a crucial skill for any developer, as it allows you to identify and fix errors in your code efficiently. Visual Studio Code (VS Code) offers powerful built-in debugging tools that help you understand how your program works and resolve issues faster.
+
+### Setting Up the Debugger in VS Code
+
+1. **Activate the Virtual Environment**:  
+   Open the terminal in VS Code and activate your project's virtual environment by running:
+
+   ```bash
+   pipenv shell
+   ```
+
+2. **Open the Project in VS Code**:  
+   Once the environment is activated, open your project in VS Code. From the command palette, select the appropriate Python interpreter for the project.
+
+3. **Create a New Django App**:  
+   If you haven't already, create a new Django app in your project and open it in VS Code.
+
+4. **Access the Debugger**:  
+   On the left sidebar, find the **Debugger icon** and click on it. This will open the **Debug panel**. If this is your first time using the debugger, you'll see a "Create a `launch.json` file" link at the top of the panel.
+
+5. **Configure the Debugger for Django**:  
+   Click on the **Create a `launch.json` file** link, which will open a list of available configurations. Select **Django** from this list, and the debugger will be configured to work with your Django project.
+
+#### Running the Debugger
+
+Once the configuration is complete, you can run your Django app with the debugger. There are two options:
+
+- **Start Debugging**: This will start the debugger and automatically activate your virtual environment. The Django web server will be launched automatically.
+- **Run Without Debugging**: This option runs the application without attaching the debugger.
+
+#### Key Debugging Concepts
+
+1. **Breakpoints**:  
+   - A **breakpoint** is a point in your code where execution is paused. You can set a breakpoint by clicking the red dot next to the line number in the code editor. This allows you to examine the values of variables at that point in time.
+   - To remove a breakpoint, simply click the red dot again.
+
+2. **Watch**:  
+   - The **Watch** feature lets you keep track of the values of specific variables as the code executes. You can add a variable to the watch list by clicking the **+** icon in the **Watch** section of the Debug panel.
+   - This is helpful for monitoring changes in variables over time and helps in identifying issues like incorrect values.
+
+#### Debug Toolbar
+
+When the debugger is paused at a breakpoint, a debug toolbar becomes visible. It contains six buttons:
+
+1. **Continue (F5)**: Resumes the execution of the program until the next breakpoint is reached or the program finishes.
+2. **Pause**: Pauses the execution of the program if it's running.
+3. **Step Over (F10)**: Executes the current line of code and pauses on the next line. It skips over function calls.
+4. **Step Into (F11)**: If the current line contains a function call, this will take you into that function and pause at the first line of the function.
+5. **Step Out (Shift+F11)**: If you're inside a function, this will take you back to the line where the function was called and pause there.
+6. **Restart**: Restarts the current debugging session from the beginning.
+7. **Stop**: Stops the debugging session and the web server.
+
+#### Example: Debugging a Simple Django View
+
+1. **Add Code to `views.py`**:  
+   Suppose you are trying to display even numbers in your Django app. You create a route that triggers a function that is supposed to display even numbers. However, when you access the route, nothing displays in the browser. This indicates that something is wrong.
+
+2. **Set a Breakpoint**:  
+   Set a breakpoint at line 9 of the view function. Start the debugger and revisit the endpoint in the browser.
+
+3. **Debugger Doesn’t Pause**:  
+   The debugger doesn't pause at line 9, meaning that the value of `remainder` is never `0`. You then add the `remainder` variable to the **Watch** list by clicking on the **+** icon in the **Watch** section.
+
+4. **Step Through the Code**:  
+   After adding the variable to the watch list, you step through the code, and notice that the value of `remainder` increases by `0.5`, which should not happen. This indicates that something is wrong with the calculation.
+
+5. **Fix the Error**:  
+   After inspecting line 7, you realize that the **division operator** was mistakenly used instead of the **modulo operator**. You fix the code by replacing `/` with `%` (the modulo operator).
+
+6. **Restart the Debugging Session**:  
+   Remove all breakpoints, restart the debugging session, and revisit the endpoint. Now, the function works as expected, and only even numbers are displayed in the browser.
+
+In this guide, you learned the basics of how to use the built-in debugger in Visual Studio Code to efficiently find and fix errors in your code. Debugging is an essential skill that helps you:
+
+- Identify and understand errors faster.
+- Monitor variable values at different stages of code execution.
+- Step through your code and isolate the exact point where things go wrong.
+
+By mastering debugging, you’ll significantly reduce the time spent on troubleshooting and improve your development workflow.
+
+## Useful Tools in Your Browser's Developer Console for Debugging API Calls
+
+Every modern browser provides a **developer console** with powerful tools for debugging, including monitoring API requests made from JavaScript on websites. Below is a guide to help you use the **Chrome Developer Console** effectively to debug your API calls.
+
+### Opening the Developer Console
+
+- **Windows/Linux**: Press **Ctrl + Shift + I**.
+- **MacOS**: Press **Cmd + Option + I**.
+
+The developer console is an essential tool when debugging API calls made via JavaScript on your website.
+
+### Key Features of the Developer Console
+
+1. **Network Tab**:
+   - The **Network Tab** lets you inspect all network requests (including API calls) made from your website.
+   - To focus on API calls, click the **Fetch/XHR filter** to narrow down the view to API requests specifically.
+
+2. **Making an API Call**:
+   - Open the **Console** tab in the Developer Console.
+   - You can initiate an **HTTP GET request** to your API using JavaScript's `fetch` function. For example:
+
+     ```javascript
+     fetch('https://api.example.com/data')
+       .then(response => response.json())
+       .then(data => console.log(data));
+     ```
+
+   - After pressing **Enter**, go to the **Network** tab to view the request and its associated response.
+
+3. **Inspecting API Calls**:
+   - In the **Network** tab, the API call is recorded and you can click on it to inspect the details.
+     - **Headers**: In the **Headers** tab, you can see all the request and response headers for the API call.
+     - **Preview**: The **Preview** tab shows the formatted output of the API response.
+     - **Response**: The **Response** tab shows the raw output (unformatted) of the API response.
+
+4. **Initiator Tab**:
+   - The **Initiator** tab shows the exact line in your JavaScript code where the API call was initiated. This is helpful for tracing the source of the request in your code.
+
+5. **Disable Cache Option**:
+   - Just below the **Network** tab, there's a checkbox labeled **Disable cache**.
+   - If you want to ensure you get fresh data from your APIs (without using cached responses), keep this box checked. This prevents the browser from using any cached response.
+
+6. **Recording and Clearing Network Calls**:
+   - All the API calls made by your JavaScript will be logged in the **Network** tab. You can click on individual calls to inspect them.
+   - To clear all recorded network calls, click the **Clear** button next to the red record button.
+
+#### Inspecting a Public API
+
+For example, to inspect a public API like `https://restcountries.com/v3.1/all`:
+
+- Visit the API endpoint directly in the browser. It returns a list of countries in **JSON** format.
+- By default, JSON responses in the browser appear as raw, unformatted text. This makes it harder to read.
+
+#### Formatting JSON Output
+
+- **Install a JSON Formatter Extension**:
+  - To format JSON output in your browser, install a **JSON Formatter** extension from your browser’s extension store (available for Chrome, Firefox, etc.).
+  - After installing and enabling the extension, revisit the API endpoint (`https://restcountries.com/v3.1/all`). The output will now be displayed in a neatly formatted structure, making it easier to read and debug.
+
+The browser's **Developer Console** is a powerful tool for debugging API requests made by JavaScript. The **Network Tab** is especially useful for inspecting API calls in detail, allowing you to examine headers, responses, and where the API call originated in your code. Additionally, installing a **JSON Formatter** extension can make working with JSON data much more manageable.
+
+These tools help you debug and optimize API interactions on your website more efficiently.
+
+## Mock APIs
+
+**Mock APIs** are simulated API endpoints that return fake data, allowing client developers to start building applications before the real API is live. They speed up development by providing a way for both API and client developers to work in parallel.
+
+- **How it works**: Mock APIs mimic real endpoints with pre-generated data. Client developers can integrate and test their apps without waiting for the real API, and once the real API is ready, they can switch the mock endpoints with actual ones.
+  
+- **Benefits**: Faster development, reduced dependencies between API and client developers, and smoother transitions when moving to real APIs.
+
+**Steps**:
+
+1. Create fake data.
+2. Create mock API endpoints that return this data.
+
+**Popular Tools**:
+
+- **[Mockaroo](http://www.mockaroo.com/)** for generating fake data.
+- **[MockAPI](https://mockapi.io/)** for creating mock API endpoints.
+
+Mock APIs play a vital role in reducing development time and improving workflow efficiency by allowing parallel development.
+
+## Module Review: RESTful API Development
+
+Congratulations! You've completed the module on **RESTful API Development**. Here’s a summary of the key concepts and topics you’ve learned:
+
+### 1. **APIs in the Real World**
+
+- You learned how APIs are used in real-world applications, with insights from Meta software engineer Celina Florentin.
+
+### 2. **HTTP and HTTPS Basics**
+
+- **HTTP**: The communication protocol between a client (e.g., browser) and a server.
+- **HTTPS**: A more secure version of HTTP, where data is encrypted on both the client and server sides.
+- **HTTP Methods**: You were reminded of the main HTTP methods like **GET**, **POST**, **PUT**, and **DELETE**. For example, **PUT** is used to update an entire resource.
+
+### 3. **HTTP Requests, Responses, and Status Codes**
+
+- You refreshed your understanding of **HTTP requests** and **responses**, and you covered the most commonly used status codes (e.g., 200, 404, 500).
+
+### 4. **RESTful Principles and Naming Conventions**
+
+- **REST**: You learned that REST (Representational State Transfer) is an architectural style for designing APIs, and an API is considered RESTful only if it follows specific constraints. One key constraint is that REST APIs are **stateless**.
+- **Naming Conventions**: You learned the importance of consistent naming conventions for endpoints to improve clarity and maintainability. For example, use **nouns** (e.g., `/books`) for resources and **avoid verbs**.
+
+### 5. **API Development Tools**
+
+- **Insomnia**: A popular free REST API client that allows you to test APIs with an easy-to-use interface.
+- You gained hands-on experience setting up your tools and environment for API development.
+
+### 6. **API Principles: Best Practices, Security, Authentication, and Access Control**
+
+- **REST Best Practices**: You learned that it's important to limit the number of versions (no more than two) for any given resource.
+- **API Security**: You explored security best practices such as **signed URLs** to limit access to resources and **token-based authentication** to avoid exposing usernames and passwords in every request.
+- **Access Control**: You learned how to set **roles and privileges** to ensure that only authorized users can access specific data.
+
+### 7. **Project Setup**
+
+- You learned about organizing your API projects effectively, such as splitting large Django apps into smaller, manageable ones. For instance, creating separate apps when upgrading an API to prevent breaking existing functionality.
+
+### 8. **XML and JSON Response Types**
+
+- You learned about **JSON** and **XML**, the two most common response formats used in APIs. JSON is simpler and lighter, while XML supports more complex structures and is often more readable.
+
+### 9. **Debugging APIs**
+
+- You practiced debugging your Python scripts using **VS Code’s built-in debugger**. This tool is essential for troubleshooting and improving your API development workflow.
+
+### 10. **Mock APIs**
+
+- You learned how to use **Mock APIs** to simulate real API endpoints with fake data, allowing client developers to build and test their applications even before the actual API is live. This helps speed up the development process by reducing dependencies between the API and client developers.
+- Popular **Mock API Tools**:
+  - **[Mockaroo](http://www.mockaroo.com/)** (for fake data generation).
+  - **[MockAPI](https://mockapi.io/)** (for creating mock API endpoints).
