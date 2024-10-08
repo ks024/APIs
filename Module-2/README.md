@@ -13,3 +13,12 @@ Use the Django REST framework to create APIs efficiently, then learn to serializ
 * Validate input data and then map it to a model using the validation and deserialization process in DRF.
 * Render API output as JSON and XML data using different types of renderers.
 * Create a basic API project using DRF.
+
+### Additional resources
+
+The following resources will be helpful as additional references in dealing with different concepts related to the topics you have covered in this section.
+
+* [Django rest framework toolkit for building web APIs](https://www.django-rest-framework.org/)
+* [Django debug toolbar documentation](https://django-debug-toolbar.readthedocs.io/en/latest/)
+* [Django Debug toolbar source code](https://github.com/jazzband/django-debug-toolbar)
+* [DRF router documentation](https://www.django-rest-framework.org/api-guide/routers/)
