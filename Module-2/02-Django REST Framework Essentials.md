@@ -107,8 +107,6 @@ Serializers in DRF streamline the process of converting database records to JSON
 
 ## Notes on Using Model Serializers in Django Rest Framework (DRF)
 
-### Overview
-
 - Model serializers in DRF simplify the process of converting Django model instances to JSON, requiring less code than standard serializers.
 
 ### Key Concepts
@@ -172,7 +170,6 @@ Serializers in DRF streamline the process of converting database records to JSON
    - Visit the menu items endpoint and the single item endpoint to verify that the new serializer works without requiring changes in `views.py`.
 
 ## Notes on Using Relationship Serializers in Django Rest Framework (DRF)
-
 
 - In Django projects, related data often spans multiple tables. To effectively manage these relationships, DRF provides relationship serializers that help convert related models to JSON for display.
 
