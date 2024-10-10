@@ -15,7 +15,7 @@ Control access to your APIs, and put systems in place to ensure you maintain the
 ### Additional Resources
 
 - [Overview of security in Django](https://docs.djangoproject.com/en/4.1/topics/security/)
-- [Memcached: Open source, high-performance, distributed memory object caching system]()
+- [Memcached: Open source, high-performance, distributed memory object caching system](https://memcached.org/)
 - [Redis: Open source, in-memory data store used by developers as a database, cache, streaming engine and message broker](https://redis.io/)
 - [Djoser documentation](https://djoser.readthedocs.io/en/latest/)
 - [Djoser source code](https://github.com/sunscrapers/djoser)
