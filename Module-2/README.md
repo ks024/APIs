@@ -22,3 +22,6 @@ The following resources will be helpful as additional references in dealing with
 * [Django debug toolbar documentation](https://django-debug-toolbar.readthedocs.io/en/latest/)
 * [Django Debug toolbar source code](https://github.com/jazzband/django-debug-toolbar)
 * [DRF router documentation](https://www.django-rest-framework.org/api-guide/routers/)
+* [XML renderer, XML support for Django REST framework](https://jpadilla.github.io/django-rest-framework-xml/)
+* [YAML renderer, YAML support for Django REST framework](https://jpadilla.github.io/django-rest-framework-yaml/)
+* [JSONP renderer, JSONP support for Django REST framework](https://jpadilla.github.io/django-rest-framework-jsonp/)

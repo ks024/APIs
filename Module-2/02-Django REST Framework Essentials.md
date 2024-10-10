@@ -802,6 +802,8 @@ Now clients can specify the response format using the following headers:
 
 In this note, you learned how to use various renderers in your DRF-based API project to display output in different formats, including HTML, CSV, and YAML. These renderers enhance the flexibility and usability of your API, catering to diverse client needs. For more detailed information on available renderers, refer to the DRF documentation.
 
+---
+
 ## Week 2 Review: Django Rest Framework (DRF)
 
 Congratulations on completing the second week of the course! Here’s a summary of what you’ve learned about using DRF to create APIs, serialize database models, and manage data.
@@ -880,6 +882,6 @@ By the end of this week, you should be able to:
 
 The following resources will be helpful as additional references in dealing with different concepts related to the topics you have covered in this section.
 
-- XML renderer, XML support for Django REST framework
-- YAML renderer, YAML support for Django REST framework
-- JSONP renderer, JSONP support for Django REST framework
+- [XML renderer, XML support for Django REST framework](https://jpadilla.github.io/django-rest-framework-xml/)
+- [YAML renderer, YAML support for Django REST framework](https://jpadilla.github.io/django-rest-framework-yaml/)
+- [JSONP renderer, JSONP support for Django REST framework](https://jpadilla.github.io/django-rest-framework-jsonp/)
